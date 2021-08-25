@@ -1,0 +1,16 @@
+{
+  "name": "14_bootstrap",
+  "version": "1.0.0",
+  "description": "![Design preview for the Four card feature section coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "build": "purgecss --css css/custom.css --content index.html --output css/min.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^5.1.0",
+    "purgecss": "^4.0.3"
+  }
+}

@@ -1,0 +1,115 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+$enable-rfs: false;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// Create your own map
+$custom-colors: (
+    'Red': hsl(0, 78%, 62%),
+    'Cyan': hsl(180, 62%, 55%),
+    'Orange': hsl(34, 97%, 64%),
+    'Blue': hsl(212, 86%, 64%),
+    /* Neutral */
+    'Dark-Blue': hsl(234, 12%, 34%),
+    'Grayish-Blue': hsl(229, 6%, 66%),
+    'Light-Gray': hsl(0, 0%, 98%)
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+// 4. Include any optional Bootstrap CSS as needed
+@import "../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities, (
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      ( responsive: true ),
+    ),
+    "font-family": (
+      property: font-family,
+      class: ff,
+      values: (
+          poppins: 'Poppins'
+      )
+    )
+  )
+);
+
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers";
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utililies.scss`
+@import "../node_modules/bootstrap/scss/utilities/api";
+
+// 6. Add additional custom code here
+
+$Very-Dark-Blue: hsl(234, 12%, 34%);
+$Grayish-Blue: hsl(229, 6%, 66%);
+$Very-Light-Gray: hsl(0, 0%, 98%);
+
+.fw-semibold{
+    font-weight: 600;
+}
+
+.fs-7{
+    font-size: .9rem;
+}
+
+main{
+    max-width: 320px;
+}
+
+body{
+    background-color: $Very-Light-Gray;
+}
+
+h1{
+    color: $Grayish-Blue;
+}
+
+h2{
+    color: $Very-Dark-Blue;
+}
+
+header p{
+    color: $Grayish-Blue;
+}
+
+h3{
+    color: $Very-Dark-Blue;
+}
+
+article p{
+    color: $Grayish-Blue;
+}
+
+@include media-breakpoint-up(xxl){
+    main{
+        max-width: 100%;
+    }
+
+    .header{
+        max-width: 590px;
+    }
+
+    .cards{
+        max-width: 1200px;
+    }
+}
